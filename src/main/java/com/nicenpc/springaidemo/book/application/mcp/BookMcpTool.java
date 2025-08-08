@@ -26,6 +26,15 @@ public class BookMcpTool {
 
     private final BookApplicationService bookApplicationService;
 
+    @Tool(name = "create-book", description = "新增書籍")
+    public BookEntity createBook(String title, String author) {
+        BookEntity bookEntity = new BookEntity();
+        bookEntity.setTitle(title);
+        bookEntity.setAuthor(author);
+        return bookApplicationService.create(bookEntity);
+    }
+
+
     /**
      * 取得所有書籍清單
      *
@@ -61,7 +70,7 @@ public class BookMcpTool {
      * @param title 書名，不能為空
      * @return 找到的書籍實體，未找到時返回 null
      * @throws IllegalArgumentException 當書名參數無效時
-     * @throws RuntimeException 當服務層發生錯誤時
+     * @throws RuntimeException         當服務層發生錯誤時
      */
     @Tool(name = "find-book-by-name", description = "根據書名取得單一本書")
     @Nullable
@@ -80,7 +89,7 @@ public class BookMcpTool {
 
             if (book != null) {
                 log.info("成功找到書籍: {} (作者: {}, ID: {})",
-                    book.getTitle(), book.getAuthor(), book.getId());
+                        book.getTitle(), book.getAuthor(), book.getId());
             } else {
                 log.warn("未找到書名為 '{}' 的書籍", normalizedTitle);
             }
@@ -99,7 +108,7 @@ public class BookMcpTool {
      * @param title 要刪除的書名，不能為空
      * @return 操作結果訊息
      * @throws IllegalArgumentException 當書名參數無效時
-     * @throws RuntimeException 當服務層發生錯誤時
+     * @throws RuntimeException         當服務層發生錯誤時
      */
     @Tool(name = "delete-book", description = "刪除書籍")
     @NonNull

@@ -31,7 +31,7 @@
 ## 🤖 整合使用說明
 
 ### Claude Desktop 設定
-### 注意:記得把C:\\dev\\spring-ai-demo-0.0.1-SNAPSHOT.jar換成自己的路徑
+注意:記得把C:\\dev\\spring-ai-demo-0.0.1-SNAPSHOT.jar換成自己的路徑
 ```json
 {
   "mcpServers": {
@@ -47,7 +47,7 @@
 ```
 
 ### GitHub Copilot Chat 設定
-注意:記得換成自己的路徑
+注意:記得把C:\\dev\\spring-ai-demo-0.0.1-SNAPSHOT.jar換成自己的路徑
 ```json
 {
   "servers": {
